@@ -1,16 +1,13 @@
-# 👻 Guardrail-Ghost
-**The invisible hand that bypasses the gate.**
+# 👻 Guardrail-Ghost v2.0
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python)
+![Security](https://img.shields.io/badge/Security-Red%20Team-red?style=for-the-badge)
 
-Guardrail-Ghost is a Proof-of-Concept (PoC) tool designed to demonstrate the fragility of keyword-based guardrails.
+A Polyglot Evasion Tool for bypassing keyword-based AI guardrails.
 
-> *For nothing is secret that will not be revealed...* — Luke 8:17
+## 🚀 New Features (v2.0)
+* **Zero-Width Mode:** Injects invisible Unicode spacers.
+* **Homoglyph Mode:** Replaces Latin characters with Cyrillic look-alikes.
+* **Mixed Mode:** Combines both strategies for maximum obfuscation.
 
-## 🚀 How It Works
-Traditional filters look for strings like 'exploit'. This tool injects hidden characters to bypass them.
-
-## 🛠️ Installation
-git clone https://github.com/R00t3dbyFa17h/Guardrail-Ghost.git
-pip install -r requirements.txt
-
-## ⚠️ Disclaimer
-For Educational Purposes Only.
+## ⚔️ Usage
+python3 guardrail_ghost.py --target <URL> --message 'exploit' --mode mixed
