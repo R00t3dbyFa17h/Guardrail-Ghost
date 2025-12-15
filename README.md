@@ -1,4 +1,5 @@
-👻 Guardrail-Ghost v2.0
+# 👻 Guardrail-Ghost v2.0
+
 ![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python)
 ![Security](https://img.shields.io/badge/Security-Red%20Team-red?style=for-the-badge&logo=kalilinux)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
