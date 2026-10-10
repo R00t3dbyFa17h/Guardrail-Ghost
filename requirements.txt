@@ -1,2 +1,5 @@
 requests
 flask
+
+# Guardrail-Ghost v3.0+ note: all additions use the Python 3 standard library
+# (unicodedata, json). No new third-party dependencies beyond the existing ones.
