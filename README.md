@@ -68,8 +68,49 @@ Python
 import unicodedata
 normalized_text = unicodedata.normalize('NFKC', user_input)
 
+---
+
+## 🆕 v3.0+ Additions (Strictly Additive)
+
+The evasion engine is now fully implemented and expanded. The **default run is unchanged** (`--mode zero` reproduces the original zero-width behavior); everything below is opt-in.
+
+### 🎛️ `--mode` — 8 evasion techniques (+ `all`)
+| Mode | Technique |
+| :--- | :--- |
+| `zero` *(default)* | Zero-Width Space (U+200B) injection |
+| `homoglyph` | Cyrillic/Greek look-alike substitution |
+| `mixed` | Homoglyph + Zero-Width combined |
+| `fullwidth` | ASCII → Unicode fullwidth forms |
+| `combining` | Combining diacritical marks (U+0301) |
+| `leet` | Leetspeak substitution |
+| `case` | Alternating case |
+| `rtl` | Right-to-Left override (U+202E) |
+| `all` | Run every technique and print a summary table |
+
+```bash
+python3 guardrail_ghost.py --target http://localhost:5000/chat --message root --mode all
+```
+
+### 🛡️ `--defense-check` (Blue-Team value)
+For each payload, reports whether **NFKC normalization + invisible-character stripping** would collapse it back to the original keyword — i.e. whether a properly hardened filter would still catch it. Turns the tool into a guardrail-hardening validator, not just a bypass generator.
+
+### 🧰 More controls
+| Flag | Description |
+| :--- | :--- |
+| `--list-modes` | List all evasion modes and exit |
+| `--json FILE` | Write full results (per-mode status, codes, defense verdicts) to JSON |
+| `--proxy URL` | Route through a proxy (Burp/ZAP) |
+| `--timeout SECS` | Request timeout |
+| `-H/--header 'Name: Value'` | Custom headers (repeatable) for authenticated endpoints |
+| `--insecure` | Disable TLS verification |
+| `--version` / `-q, --quiet` | Version string / quieter output |
+
+> All additions use only the Python standard library (`unicodedata`, `json`) — no new dependencies. Maintained by **R00t3dbyFa17h / K70n0s510**.
+
+---
+
 ⚠️ Disclaimer
 
 For Educational Use Only. This tool is intended for authorized security testing and Red Team engagements. The author (R00t3dbyFa17h) is not responsible for unauthorized use.
 
-Forged by R00t3dbyFa17h
+Forged by R00t3dbyFa17h / K70n0s510
